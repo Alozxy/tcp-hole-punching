@@ -91,13 +91,13 @@ def main():
 	while True:
 		rfds,_,_ = select( [0, sc], [], [] )
 			if 0 in rfds:
-				data = sys.stdin.readline()
-				if not data:
-					break
-				sc.send(data))
-			elif sc in rfds:
-				data = sc.recv(1024)
-				sys.stdout.write( data )
+			data = sys.stdin.readline()
+			if not data:
+				break
+			sc.send(data)
+		elif sc in rfds:
+			data = sc.recv(1024)
+			sys.stdout.write( data )
 	sc.close()
 
  
